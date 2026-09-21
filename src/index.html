@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Чай оптом и в розницу">
+    <meta name="keywords" content="чай">
+    <meta name="Canonical" content="https://teaboom.ru/">
+    <meta name="og:title" content="Купить чай">
+    <meta name="og:description" content="Подберем чаи">
+    <meta property="og:image:alt" content="Чаи">
+    <meta name="twitter:title" content="Купить чай">
+    <meta name="twitter:description" content="Подберем чай">
+
+    <link rel="shortcut icon" sizes="32x32" href="/images/favicon.ico">
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <title>Ананасовый улун</title>
+  </head>
+
+  <body>
+  <div class="wrapper">
+
+    <div class="main">
+      <div id="product">
+        @import('product/product.html')
+      </div>
+    </div>
+
+    <div id="footer">
+      @import('footer/footer.html')
+    </div>
+  </div>
+
+    <script type="module" src="main.js"></script>
+    <script type="module">
+      import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.mjs'
+
+      const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+
+        // pagination
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+          renderBullet: function (index, className) {
+            return `<span class="${className} product-image-thumb">
+                <img src="/images/product-1.jpg" alt />
+              </span>`;
+          },
+        },
+
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    </script>
+  </body>
+</html>

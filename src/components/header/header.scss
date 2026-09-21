@@ -1,0 +1,159 @@
+$header_height: 64px;
+
+@mixin stiky-header {
+  height: $header_height;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 110;
+
+  &:before {
+    background: rgba(0, 16, 36, 0.1215686275);
+    bottom: 0;
+    content: "";
+    height: 1px;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    transition: opacity 0.25s ease;
+    z-index: 1;
+    opacity: 0;
+  }
+
+  &.fixed-top-with-border:before {
+    opacity: 1;
+  }
+}
+
+.header {
+  @include stiky-header;
+  background-color: #fff;
+  position: fixed;
+
+  @include to-sm {
+    height: 56px;
+  }
+
+  .logo {
+    padding-top: 2px;
+    img {
+      width: 124px;
+    }
+
+    @include vp-sm {
+      padding-top: 8px;
+      img {
+        width: 126px;
+      }
+    }
+
+    a {
+      display: block;
+    }
+  }
+}
+
+.fixed-top {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: z-index $transition, transform $transition, opacity $transition;
+  transform: translateY(0);
+  opacity: 1;
+
+  .hystmodal__opened & {
+    z-index: 10;
+    transition: z-index 0, transform $transition, opacity $transition;
+    display: none;
+  }
+}
+
+.header:not(.fixed-top) {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+.header-wrapper,
+.header-wrapper .container,
+.header-content {
+  height: 100%;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+
+  @include vp-sm-md {
+    max-width: 768px;
+  }
+  @include vp-sm {
+    align-items: flex-start;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+.header-tools {
+  margin-right: -7px;
+
+  @include vp-xxs {
+    margin-right: 0;
+  }
+
+  .hero-btn {
+    margin: 0;
+
+    @include to-sm {
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 100%;
+      letter-spacing: 0.41px; // figma = -0.08px; PP = 0.41px
+      text-align: center;
+      height: 30px;
+      min-height: 30px;
+      min-width: 138px;
+      width: 138px;
+      background-color: rgba(0, 16, 36, 0.03);
+      color: #333;
+      padding: 9px 10px 8px;
+
+      &:hover,
+      &:focus {
+        background-color: rgba(0, 16, 36, 0.03);
+        color: #333;
+      }
+    }
+
+    @include vp-sm {
+      border-radius: 8px;
+      min-height: 44px;
+      height: 44px;
+      line-height: 110%;
+      min-width: 155px;
+      padding: 15px 16px;
+    }
+  }
+}
+
+.btn-cta {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  pointer-events: none;
+
+  // Появление при скролле мимо .forms
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  @include vp-sm {
+    // transform: translateY(-4px);
+  }
+}

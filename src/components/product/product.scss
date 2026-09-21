@@ -1,0 +1,389 @@
+@import "../../styles/_variables";
+@import "../../styles/_mixins";
+
+.product {
+  position: relative;
+}
+.product.card {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+  margin-top: 32px;
+  max-width: 900px; // content with sidebar
+}
+
+.product-media {
+  width: 100%;
+  padding-right: 32px;
+  margin-bottom: 16px;
+  max-width: 768px;
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  @include vp-sm {
+    width: 50%;
+    margin-bottom: 0;
+  }
+  @include vp-sm {
+    width: 50%;
+    max-width: 100%;
+  }
+}
+.product-info {
+  width: 100%;
+  margin-bottom: 30px;
+
+  @include vp-sm {
+    width: 50%;
+  }
+  @include vp-md {
+    width: 50%;
+  }
+}
+
+h1,
+.product-heading {
+  font-weight: 500;
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.product-heading {
+  @include vp-sm {
+    display: none;
+  }
+}
+h1 {
+  display: none;
+  @include vp-sm {
+    display: block;
+  }
+}
+
+.product-tools {
+  margin-bottom: 16px;
+  @include vp-xs {
+    margin-bottom: 20px;
+  }
+
+  .tool-title {
+    color: #333;
+    @include vp-sm {
+      display: none;
+    }
+  }
+}
+.add_remove_favorite {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.swiper {
+  width: 100%;
+  min-height: 300px;
+
+  .swiper-wrapper {
+    padding-bottom: 64px;
+  }
+  .swiper-pagination-bullet {
+    width: 64px;
+    height: 64px;
+    opacity: 0.7;
+    &.swiper-pagination-bullet-active {
+      opacity: 1;
+    }
+  }
+  .swiper-pagination {
+    bottom: 0;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #999;
+    width: 16px;
+    margin-top: -60px;
+  }
+}
+
+.product-price-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.variant-item {
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 15px 68px 15px 12px;
+  position: relative;
+  width: 100%;
+
+  @include vp-xs {
+    flex-direction: column;
+    padding: 15px 12px 48px;
+    width: auto;
+    margin-top: 16px;
+  }
+
+  .variant-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    width: 50%;
+
+    @include vp-xs {
+      margin-bottom: 10px;
+      width: 100%;
+    }
+  }
+  .variant-sku {
+    font-weight: 400;
+    font-size: 12px;
+    opacity: 0.6;
+    @include vp-xs {
+      opacity: 1;
+    }
+  }
+  .variant-stock {
+    position: absolute;
+    left: 12px;
+    bottom: 10px;
+
+    @include vp-xs {
+      position: relative;
+      left: auto;
+      bottom: auto;
+    }
+    .amount {
+      font-weight: 600;
+      color: #333;
+
+      &.many {
+        color: #047857;
+      }
+    }
+  }
+
+  .variant-price {
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 4px;
+  }
+  .regular-price {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 20px;
+    font-weight: 600;
+    color: red;
+    order: 3;
+  }
+  .for-sale-price {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 16px;
+    font-weight: 400;
+    order: 1;
+  }
+
+  .variant-to-cart {
+    order: 10;
+    a {
+      background-color: #e9f2c3;
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      left: auto;
+      right: 0;
+      width: 60px;
+      height: 100%;
+      padding: 6px 8px 2px;
+      text-align: center;
+      transition: 0.3s;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background-color: #d4e6a0;
+      }
+
+      @include vp-xs {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+.ti-shopping-cart {
+
+  &:before {
+    content: '';
+    display: inline-block;
+    background: url("/images/icon-shopping-cart.svg") no-repeat left top;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.breadcrumb {
+  display: block;
+  position: relative;
+  width: 100%;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 8px;
+
+    > li {
+      display: block;
+
+      > a {
+        color: #333;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        &:after {
+          content: "→";
+        }
+      }
+
+      &:last-child {
+        a {
+          color: rgb(204, 102, 0);
+          &:after {
+            content: "";
+          }
+        }
+      }
+    }
+  }
+}
+
+.product-description {
+  width: 100%;
+  font-size: 14px;
+
+  h3 {
+    font-size: 22px;
+    margin-top: 16px;
+    margin-bottom: 12px;
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 24px;
+
+    > li {
+      list-style: disc;
+    }
+  }
+  a {
+    color: rgb(204, 102, 0);
+  }
+}
+
+/* Стили для лайтбокса */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.lightbox-overlay.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90vh;
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  display: block;
+}
+
+/* Кнопка закрытия */
+.lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.lightbox-close:hover {
+  transform: scale(1.2);
+}
+
+/* На мобильных устройствах кнопка справа вверху внутри */
+@media (max-width: 768px) {
+  .lightbox-close {
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+  }
+}

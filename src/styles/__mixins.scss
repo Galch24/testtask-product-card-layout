@@ -1,0 +1,217 @@
+@charset "UTF-8";
+
+/* Обнуление */
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  // font-weight: inherit;
+  // font-size: inherit;
+}
+
+@mixin vp-479 {
+  @media (max-width: $vp-479) {
+    @content;
+  }
+}
+
+@mixin vp-767 {
+  @media (max-width: $vp-767) {
+    @content;
+  }
+}
+
+@mixin vp-999 {
+  @media (max-width: $vp-999) {
+    @content;
+  }
+}
+
+@mixin vp-1359 {
+  @media (max-width: $vp-1359) {
+    @content;
+  }
+}
+
+@mixin to-lg {
+  @media (max-width: $vp-lg - 1) {
+    @content;
+  }
+}
+@mixin to-md {
+  @media (max-width: $vp-md - 1) {
+    @content;
+  }
+}
+@mixin to-smm {
+  @media (max-width: $vp-smm - 1) {
+    @content;
+  }
+}
+@mixin to-sm {
+  @media (max-width: $vp-sm - 1) {
+    @content;
+  }
+}
+@mixin to-xs {
+  @media (max-width: $vp-xs - 1) {
+    @content;
+  }
+}
+@mixin to-xxs {
+  @media (max-width: $vp-xxs - 1) {
+    @content;
+  }
+}
+
+// Mobile first
+@mixin vp-xxs {
+  @media (min-width: $vp-xxs) {
+    @content;
+  }
+}
+@mixin vp-xs {
+  @media (min-width: $vp-xs) {
+    @content;
+  }
+}
+@mixin vp-smm {
+  @media (min-width: $vp-smm) {
+    @content;
+  }
+}
+@mixin vp-sm {
+  @media (min-width: $vp-sm) {
+    @content;
+  }
+}
+
+@mixin vp-md {
+  @media (min-width: $vp-md) {
+    @content;
+  }
+}
+
+@mixin vp-lg {
+  @media (min-width: $vp-lg) {
+    @content;
+  }
+}
+
+@mixin vp-xlg {
+  @media (min-width: $vp-xlg) {
+    @content;
+  }
+}
+
+// Interval media
+@mixin vp-xxs-xs {
+  @media (min-width: $vp-xxs) and (max-width: $vp-xs - 1) {
+    @content;
+  }
+}
+@mixin vp-xs-sm {
+  @media (min-width: $vp-xs) and (max-width: $vp-sm - 1) {
+    @content;
+  }
+}
+@mixin vp-xs-smm {
+  @media (min-width: $vp-xs) and (max-width: $vp-smm - 1) {
+    @content;
+  }
+}
+@mixin vp-smm-sm {
+  @media (min-width: $vp-smm) and (max-width: $vp-sm - 1) {
+    @content;
+  }
+}
+@mixin vp-sm-md {
+  @media (min-width: $vp-sm) and (max-width: $vp-md - 1) {
+    @content;
+  }
+}
+
+@mixin vp-sm-lg {
+  @media (min-width: $vp-sm) and (max-width: $vp-lg - 1) {
+    @content;
+  }
+}
+
+@mixin vp-md-lg {
+  @media (min-width: $vp-md) and (max-width: $vp-lg - 1) {
+    @content;
+  }
+}
+
+// To use:
+// @include vp-lg {
+//  ...
+// }
+//
+
+@mixin title-gradient-base {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin title-gradient {
+  background: radial-gradient(45.03% 368.23% at 50% 50%, #333333 72.12%, #DE7321 97.21%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+@mixin title-gradient2 {
+  background: radial-gradient(268.22% 32.8% at 49.2% 50%, #333 69.71%, #7B4E2B 82.69%, #B66425 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin title-gradient3 {
+  background: radial-gradient(32.8% 268.22% at 50% 49.2%, #333 69.71%, #7B4E2B 82.69%, #B66425 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin title-gradient4 {
+  background: radial-gradient(48.76% 398.72% at 50% 50%, #333 69.71%, #7B4E2B 83.65%, #B66425 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin title-gradient5 {
+  background: radial-gradient(48.76% 398.72% at 50% 50%, #333333 69.71%, #7B4E2B 83.65%, #B66425 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
